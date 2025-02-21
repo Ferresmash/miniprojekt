@@ -9,6 +9,7 @@ import iterator.ConcreteDocumentIterator;
 import iterator.DocumentIterator;
 import singleton.DocumentManager;
 import visitor.HTMLVisitor;
+import visitor.LaTeXVisitor;
 
 public class Api implements Facade {
 
@@ -41,6 +42,10 @@ public class Api implements Facade {
 	public String renderAsHTML(Document document) {
 		return document.render(new HTMLVisitor());
 	}
+	
+	public String renderAsLaTeX(Document document) {
+		return document.render(new LaTeXVisitor());
+	}
 
 	@Override
 	public Document getDocument(String id) {
@@ -70,7 +75,7 @@ public class Api implements Facade {
 	public void printDocumentElements(Document document) {
 		this.documentIterator = new ConcreteDocumentIterator(document);
 		while (documentIterator.hasNext()) {
-			System.out.println(documentIterator.next().render());
+			System.out.println(documentIterator.next().toString());
 		}
 	}
 

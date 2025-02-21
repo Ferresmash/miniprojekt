@@ -36,10 +36,10 @@ public class Table implements DocumentElement, CompositeElement {
     }
 
     @Override
-    public String render() {
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         for (TableRow row : rows) {
-            sb.append(row.render()).append("\n");
+            sb.append(row.toString()).append("\n");
         }
         return sb.toString();
     }
@@ -50,8 +50,8 @@ public class Table implements DocumentElement, CompositeElement {
     }
 
 	@Override
-	public void accept(Visitor visitor) {
+	public String accept(Visitor visitor) {
 		// TODO Auto-generated method stub
-		
+		return visitor.visit(this);
 	}
 }

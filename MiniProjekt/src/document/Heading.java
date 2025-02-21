@@ -15,17 +15,13 @@ public class Heading implements DocumentElement {
 		this.setContent(content);
 		this.setLevel(level);
 	}
-	
-	public String getContent() {
-		return content;
-	}
 
 	public void setContent(String content) {
 		this.content = content;
 	}
 
 	@Override
-	public String render() {
+	public String toString() {
 		return content;
 	}
 
@@ -38,8 +34,8 @@ public class Heading implements DocumentElement {
 	}
 
 	@Override
-	public void accept(Visitor visitor) {
+	public String accept(Visitor visitor) {
 		// TODO Auto-generated method stub
-		
+		return visitor.visit(this);
 	}
 }

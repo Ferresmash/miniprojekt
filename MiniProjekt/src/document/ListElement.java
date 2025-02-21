@@ -31,20 +31,23 @@ public class ListElement implements DocumentElement, CompositeElement {
 	public DocumentElement getChild(int index) {
 		return elementList.get(index);
 	}
+	
+	public List<DocumentElement> getContent() {
+		return elementList;
+	}
 
 	@Override
-	public String render() {
+	public String toString() {
 		String output = "";
 		for (DocumentElement documentElement : elementList) {
-			output += " - " + documentElement.render() + "\n";
+			output += documentElement.toString() + "\n";
 		}
 		return output;
 	}
 
 	@Override
-	public void accept(Visitor visitor) {
-		// TODO Auto-generated method stub
-		
+	public String accept(Visitor visitor) {
+		return visitor.visit(this);
 	}
 
 }

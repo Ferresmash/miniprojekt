@@ -8,10 +8,10 @@ import document.TableRow;
 
 public interface Visitor {
 	
-	public void visit(Heading documentElement);
-	public void visit(ListElement documentElement);
-	public void visit(Paragraph documentElement);
-	public void visit(Table documentElement);
-	public void visit(TableRow documentElement);
+	public String visit(Heading documentElement);
+	public String visit(ListElement documentElement);
+	public String visit(Paragraph documentElement);
+	public String visit(Table documentElement);
+	public String visit(TableRow documentElement);
 
 }

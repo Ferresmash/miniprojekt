@@ -32,10 +32,10 @@ public class TableRow implements DocumentElement, CompositeElement {
     }
 
     @Override
-    public String render() {
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         for (DocumentElement cell : cells) {
-            sb.append(cell.render()).append(" | ");
+            sb.append(cell.toString()).append(" | ");
         }
         if(sb.length() > 0) {
             sb.setLength(sb.length() - 3);
@@ -48,9 +48,9 @@ public class TableRow implements DocumentElement, CompositeElement {
     }
 
 	@Override
-	public void accept(Visitor visitor) {
+	public String accept(Visitor visitor) {
 		// TODO Auto-generated method stub
-		visitor.visit(this);
+		return visitor.visit(this);
 	}
 
 }

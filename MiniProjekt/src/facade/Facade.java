@@ -11,6 +11,10 @@ public interface Facade {
 	    
 	    public String renderDocument(Document document);
 	    
+	    public String renderAsHTML(Document document);
+	    
+	    public String renderAsLaTeX(Document document);
+	    
 	    public Document getDocument(String id);
 	    
 	    public void saveDocument(String id, Document document);

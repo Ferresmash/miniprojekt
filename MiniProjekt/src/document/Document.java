@@ -34,12 +34,16 @@ public class Document {
 	public String render() {
 		StringBuilder builder = new StringBuilder();
 		for (DocumentElement element : elements) {
-			builder.append(element.render()).append("\n");
+			builder.append(element.toString()).append("\n");
 		}
 		return builder.toString();
 	}
 	
 	public String render(Visitor visitor) {
-		
+		StringBuilder builder = new StringBuilder();
+		for (DocumentElement element : elements) {
+			builder.append(element.accept(visitor)).append("\n");
+		}
+		return builder.toString();
 	}
 }

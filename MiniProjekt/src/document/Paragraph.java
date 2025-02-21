@@ -15,7 +15,7 @@ public class Paragraph implements DocumentElement {
 	}
 	
 	@Override
-	public String render() {
+	public String toString() {
 		return content;
 	}
 
@@ -24,8 +24,8 @@ public class Paragraph implements DocumentElement {
 	}
 
 	@Override
-	public void accept(Visitor visitor) {
+	public String accept(Visitor visitor) {
 		// TODO Auto-generated method stub
-		
+		return visitor.visit(this);
 	}
 }
