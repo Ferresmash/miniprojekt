@@ -1,5 +1,6 @@
 package document;
 
+import visitor.Visitor;
 
 public class Heading implements DocumentElement {
 	
@@ -34,5 +35,11 @@ public class Heading implements DocumentElement {
 
 	public void setLevel(int level) {
 		this.level = level;
+	}
+
+	@Override
+	public void accept(Visitor visitor) {
+		// TODO Auto-generated method stub
+		
 	}
 }

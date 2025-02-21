@@ -3,6 +3,8 @@ package document;
 import java.util.ArrayList;
 import java.util.List;
 
+import visitor.Visitor;
+
 public class ListElement implements DocumentElement, CompositeElement {
 
 	private List<DocumentElement> elementList = new ArrayList<DocumentElement>();
@@ -37,6 +39,12 @@ public class ListElement implements DocumentElement, CompositeElement {
 			output += " - " + documentElement.render() + "\n";
 		}
 		return output;
+	}
+
+	@Override
+	public void accept(Visitor visitor) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -3,6 +3,8 @@ package document;
 import java.util.ArrayList;
 import java.util.List;
 
+import visitor.Visitor;
+
 public class TableRow implements DocumentElement, CompositeElement {
 
 	private List<DocumentElement> cells = new ArrayList<>();
@@ -44,5 +46,11 @@ public class TableRow implements DocumentElement, CompositeElement {
     public List<DocumentElement> getCells() {
         return cells;
     }
+
+	@Override
+	public void accept(Visitor visitor) {
+		// TODO Auto-generated method stub
+		visitor.visit(this);
+	}
 
 }

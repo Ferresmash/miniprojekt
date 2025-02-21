@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import visitor.Visitor;
+
 public class Document {
 
 	private List<DocumentElement> elements;
@@ -35,5 +37,9 @@ public class Document {
 			builder.append(element.render()).append("\n");
 		}
 		return builder.toString();
+	}
+	
+	public String render(Visitor visitor) {
+		
 	}
 }

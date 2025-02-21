@@ -1,5 +1,7 @@
 package document;
 
+import visitor.Visitor;
+
 public class Paragraph implements DocumentElement {
 
 	private String content;
@@ -19,5 +21,11 @@ public class Paragraph implements DocumentElement {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	@Override
+	public void accept(Visitor visitor) {
+		// TODO Auto-generated method stub
+		
 	}
 }
