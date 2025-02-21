@@ -8,6 +8,7 @@ import document.DocumentElement;
 import iterator.ConcreteDocumentIterator;
 import iterator.DocumentIterator;
 import singleton.DocumentManager;
+import visitor.HTMLVisitor;
 
 public class Api implements Facade {
 
@@ -35,6 +36,10 @@ public class Api implements Facade {
 	@Override
 	public String renderDocument(Document document) {
 		return document.render();
+	}
+	
+	public String renderAsHTML(Document document) {
+		return document.render(new HTMLVisitor());
 	}
 
 	@Override
