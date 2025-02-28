@@ -19,8 +19,7 @@ public class Main {
 		Facade api = new Api();		
 		DocumentManager manager = DocumentManager.getInstance();
 		Document testDoc = api.createDocument();		
-		String id = "nyckel";		
-		api.saveDocument(id, testDoc);		
+		String id = "nyckel";			
 		api.printDocumentElements(testDoc);
 		ListElement list1 = new ListElement();
 		ListElement list2 = new ListElement();
