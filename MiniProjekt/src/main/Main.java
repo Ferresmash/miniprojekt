@@ -26,6 +26,7 @@ public class Main {
 		list2.add(list1);
 		list2.add(new Paragraph("2"));
 		list2.add(new Paragraph("3"));
+<<<<<<< HEAD
 		api.executeCommand(new AddElementCommand(testDoc, list2));
 		System.out.println(api.renderDocument(testDoc));	
 		//System.out.println("\\begin{document}" + api.renderAsLaTeX(testDoc) + "\\begin{document}");	
@@ -33,6 +34,13 @@ public class Main {
 		System.out.println("--Undo--");
 		System.out.println(api.renderDocument(testDoc));
 		//api.deleteDocument(id);
+=======
+		api.addElement(testDoc, list2);
+		//System.out.println(api.renderDocument(testDoc));	
+		//System.out.println("\\begin{document}" + api.renderAsHTML(testDoc) + "\\begin{document}");	
+		System.out.println(api.renderAsXML(testDoc));	
+		api.deleteDocument(id);
+>>>>>>> branch 'main' of https://github.com/Ferresmash/miniprojekt.git
 		//api.getDocument(id); //should not work
 		
 		
