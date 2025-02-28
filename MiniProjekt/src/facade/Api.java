@@ -16,6 +16,7 @@ public class Api implements Facade {
 	private DocumentManager documentManager;
 	private Director director;
 	private DocumentIterator documentIterator;
+	
 
 	public Api() {
 		this.documentManager = DocumentManager.getInstance();
