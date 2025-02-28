@@ -12,7 +12,6 @@ import iterator.ConcreteDocumentIterator;
 import iterator.DocumentIterator;
 import singleton.DocumentManager;
 import visitor.HTMLVisitor;
-import visitor.LaTeXVisitor;
 import visitor.XMLVisitor;
 
 public class Api implements Facade {
@@ -59,11 +58,6 @@ public class Api implements Facade {
 	}
 
 	@Override
-	public void addElement(Document document, DocumentElement element) {
-		document.addElement(element);
-	}
-
-	@Override
 	public String renderDocument(Document document) {
 		return document.render();
 	}
@@ -80,21 +74,6 @@ public class Api implements Facade {
 	public Document getDocument(String id) {
 		if (documentManager.documentExists(id)) {
 			return documentManager.getDocument(id);
-		} else {
-			throw new IllegalArgumentException("Dokument med detta id finns ej!");
-		}
-	}
-
-	@Override
-	public void saveDocument(String id, Document document) {
-		documentManager.saveDocument(id, document);
-
-	}
-
-	@Override
-	public void deleteDocument(String id) {
-		if (documentManager.documentExists(id)) {
-			documentManager.deleteDocument(id);
 		} else {
 			throw new IllegalArgumentException("Dokument med detta id finns ej!");
 		}
