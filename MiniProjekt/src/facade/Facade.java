@@ -1,5 +1,6 @@
 package facade;
 
+import command.Command;
 import document.Document;
 import document.DocumentElement;
 
@@ -7,7 +8,13 @@ public interface Facade {
 	
 	    public Document createDocument();
 	    
+	    public void executeCommand(Command command);
+	    
 	    public void addElement(Document document, DocumentElement element);
+	    
+	    public void undo();
+	    
+	    public void redo();
 	    
 	    public String renderDocument(Document document);
 	    

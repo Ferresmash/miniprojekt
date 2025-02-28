@@ -19,6 +19,12 @@ public class Document {
 			elements.add(element);
 		}
 	}
+	public DocumentElement removeElement(int index) {
+		if (index >= 0 && index < elements.size()) {
+			return elements.remove(index);
+		}
+		return null;
+	}
 
 	public DocumentElement getElement(int index) {
 		if (index < 0 || index >= elements.size()) {

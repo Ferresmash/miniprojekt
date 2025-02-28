@@ -1,8 +1,11 @@
 package facade;
 
+import java.util.Stack;
+
 import builder.Director;
 import builder.DocumentBuilder;
 import builder.StandardDocumentBuilder;
+import command.Command;
 import document.Document;
 import document.DocumentElement;
 import iterator.ConcreteDocumentIterator;
@@ -16,6 +19,8 @@ public class Api implements Facade {
 	private DocumentManager documentManager;
 	private Director director;
 	private DocumentIterator documentIterator;
+	private Stack<Command> undoStack = new Stack<>();
+    private Stack<Command> redoStack = new Stack<>();
 	
 
 	public Api() {
@@ -28,6 +33,28 @@ public class Api implements Facade {
 		director = new Director(builder);
 		director.constructDocument();
 		return builder.getResult();
+	}
+	
+	public void executeCommand(Command command) {
+		command.execute();
+		undoStack.push(command);
+        redoStack.clear();
+	}
+	
+	public void undo() {
+		if (!undoStack.isEmpty()) {
+            Command command = undoStack.pop();
+            command.undo();
+            redoStack.push(command);
+        }
+	}
+	
+	public void redo() {
+		if (!redoStack.isEmpty()) {
+            Command command = redoStack.pop();
+            command.execute();
+            undoStack.push(command);
+        }
 	}
 
 	@Override
