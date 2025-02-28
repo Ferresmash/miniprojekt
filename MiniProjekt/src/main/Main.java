@@ -36,30 +36,36 @@ public class Main {
 		api.executeCommand(new RemoveElementCommand(testDoc, 6));
 		System.out.println(api.renderDocument(testDoc));	
 		api.undo();
-		System.out.println(api.renderDocument(testDoc));	
+		System.out.println("undo\n" + api.renderDocument(testDoc));
+		api.redo();
+		System.out.println("redo\n" + api.renderDocument(testDoc));	
 		
 		System.out.println("--------------------------------------------");	
 		
 		api.executeCommand(new AddElementCommand(testDoc, list2));
 		System.out.println(api.renderDocument(testDoc));	
 		api.undo();
-		System.out.println(api.renderDocument(testDoc));
+		System.out.println("undo\n" + api.renderDocument(testDoc));
+		api.redo();
+		System.out.println("redo\n" + api.renderDocument(testDoc));
 		
 		System.out.println("--------------------------------------------");	
 		
-		System.out.println(manager.documentExists("testDoc"));
 		api.executeCommand(new SaveDocumentCommand(manager, testDoc, "testDoc"));
 		System.out.println(manager.documentExists("testDoc"));
 		api.undo();
-		System.out.println(manager.documentExists("testDoc"));
+		System.out.println("undo\n" + manager.documentExists("testDoc"));
+		api.redo();
+		System.out.println("redo\n" + manager.documentExists("testDoc"));
 		
 		System.out.println("--------------------------------------------");	
 		
-		System.out.println(manager.documentExists("nyckel"));
 		api.executeCommand(new DeleteDocumentCommand(manager, "nyckel"));
 		System.out.println(manager.documentExists("nyckel"));	
 		api.undo();
-		System.out.println(manager.documentExists("nyckel"));
+		System.out.println("undo\n" + manager.documentExists("nyckel"));
+		api.redo();
+		System.out.println("redo\n" + manager.documentExists("nyckel"));
 		
 		//testing rendering document in different markuplanguages
 		System.out.println(api.renderDocument(testDoc));	
