@@ -12,7 +12,6 @@ import iterator.ConcreteDocumentIterator;
 import iterator.DocumentIterator;
 import singleton.DocumentManager;
 import visitor.HTMLVisitor;
-import visitor.LaTeXVisitor;
 import visitor.XMLVisitor;
 
 public class Api implements Facade {
