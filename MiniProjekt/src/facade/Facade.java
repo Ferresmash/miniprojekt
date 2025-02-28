@@ -10,8 +10,6 @@ public interface Facade {
 	    
 	    public void executeCommand(Command command);
 	    
-	    public void addElement(Document document, DocumentElement element);
-	    
 	    public void undo();
 	    
 	    public void redo();
@@ -23,10 +21,6 @@ public interface Facade {
 	    public String renderAsXML(Document document);
 	    
 	    public Document getDocument(String id);
-	    
-	    public void saveDocument(String id, Document document);
-	    
-	    public void deleteDocument(String id);
 	    
 	    public void printDocumentElements(Document document);
 	    
