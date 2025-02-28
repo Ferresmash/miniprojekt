@@ -61,19 +61,11 @@ public class Main {
 		api.undo();
 		System.out.println(manager.documentExists("nyckel"));
 		
-		
+		//testing rendering document in different markuplanguages
+		System.out.println(api.renderDocument(testDoc));	
+		System.out.println(api.renderAsHTML(testDoc));	
+		System.out.println(api.renderAsXML(testDoc));	
 
-		//System.out.println("\\begin{document}" + api.renderAsLaTeX(testDoc) + "\\begin{document}");	
-		//api.undo();
-		//System.out.println("--Undo--");
-		//System.out.println(api.renderDocument(testDoc));
-		//api.deleteDocument(id);
-		//api.addElement(testDoc, list2);
-		//System.out.println(api.renderDocument(testDoc));	
-		//System.out.println("\\begin{document}" + api.renderAsHTML(testDoc) + "\\begin{document}");	
-		//System.out.println(api.renderAsXML(testDoc));	
-		//api.deleteDocument(id);
-		//api.getDocument(id); //should not work
 		
 		
 	}
