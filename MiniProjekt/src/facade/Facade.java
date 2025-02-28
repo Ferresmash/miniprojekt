@@ -13,7 +13,7 @@ public interface Facade {
 	    
 	    public String renderAsHTML(Document document);
 	    
-	    public String renderAsLaTeX(Document document);
+	    public String renderAsXML(Document document);
 	    
 	    public Document getDocument(String id);
 	    

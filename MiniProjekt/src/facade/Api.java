@@ -10,6 +10,7 @@ import iterator.DocumentIterator;
 import singleton.DocumentManager;
 import visitor.HTMLVisitor;
 import visitor.LaTeXVisitor;
+import visitor.XMLVisitor;
 
 public class Api implements Facade {
 
@@ -44,8 +45,8 @@ public class Api implements Facade {
 		return document.render(new HTMLVisitor());
 	}
 	
-	public String renderAsLaTeX(Document document) {
-		return document.render(new LaTeXVisitor());
+	public String renderAsXML(Document document) {
+		return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n <document>\n" + document.render(new XMLVisitor()) + "</document>";
 	}
 
 	@Override
