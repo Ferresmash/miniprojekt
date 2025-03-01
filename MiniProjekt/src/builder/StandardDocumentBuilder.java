@@ -10,9 +10,9 @@ public class StandardDocumentBuilder implements DocumentBuilder {
 	private Document document;
 	private DocumentElementFactory factory;
 	
-	public StandardDocumentBuilder() {
+	public StandardDocumentBuilder(DocumentElementFactory factory) {
 		this.document = new Document();
-		this.factory = new ConcreteElementFactory();
+		this.factory = factory;
 	}
 
 	@Override

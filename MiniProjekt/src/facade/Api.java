@@ -56,6 +56,18 @@ public class Api implements Facade {
             undoStack.push(command);
         }
 	}
+	
+	public Document convertToStandard() {
+		
+	}
+	
+	public Document convertToHTML() {
+		
+	}
+
+	public Document convertToXML() {
+		
+	}
 
 	@Override
 	public String renderDocument(Document document) {

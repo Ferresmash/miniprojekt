@@ -10,10 +10,11 @@ import document.Table;
 import document.TableRow;
 
 public class HTMLVisitor implements Visitor {
+	HTMLDocumentElementFactory factory = new HTMLDocumentElementFactory();
 
 	@Override
 	public String visit(Heading e) {
-		return "<h"+e.getLevel()+">"+e.toString()+"</h"+e.getLevel()+">";
+		return e.toString();
 	}
 
 	@Override
