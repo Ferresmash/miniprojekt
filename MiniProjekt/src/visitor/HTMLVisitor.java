@@ -50,7 +50,7 @@ public class HTMLVisitor implements Visitor {
 		for(DocumentElement element : e.getCells()) {
 			str += "<td>"+element.accept(this)+"</td>\n";
 		}
-		return str+ "";
+		return str;
 	}
 
 }

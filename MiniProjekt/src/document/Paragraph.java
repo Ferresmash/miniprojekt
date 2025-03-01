@@ -4,7 +4,7 @@ import visitor.Visitor;
 
 public class Paragraph implements DocumentElement {
 
-	private String content;
+	protected String content;
 	
 	public Paragraph() {
 		this("");
@@ -25,7 +25,6 @@ public class Paragraph implements DocumentElement {
 
 	@Override
 	public String accept(Visitor visitor) {
-		// TODO Auto-generated method stub
 		return visitor.visit(this);
 	}
 }

@@ -7,7 +7,7 @@ import visitor.Visitor;
 
 public class ListElement implements DocumentElement, CompositeElement {
 
-	private List<DocumentElement> elementList = new ArrayList<DocumentElement>();
+	protected List<DocumentElement> elementList = new ArrayList<DocumentElement>();
 
 	public ListElement() {
 
