@@ -4,7 +4,7 @@ import visitor.Visitor;
 
 public class Heading implements DocumentElement {
 	
-	private String content;
+	protected String content;
 	private int level;
 	
 	public Heading() {
@@ -35,7 +35,6 @@ public class Heading implements DocumentElement {
 
 	@Override
 	public String accept(Visitor visitor) {
-		// TODO Auto-generated method stub
 		return visitor.visit(this);
 	}
 }
