@@ -18,6 +18,10 @@ public class Paragraph implements DocumentElement {
 	public String toString() {
 		return content;
 	}
+	
+	public String getContent() {
+		return content;
+	}
 
 	public void setContent(String content) {
 		this.content = content;

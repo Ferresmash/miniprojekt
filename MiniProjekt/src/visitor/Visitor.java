@@ -1,5 +1,6 @@
 package visitor;
 
+import document.DocumentElement;
 import document.Heading;
 import document.ListElement;
 import document.Paragraph;
@@ -8,10 +9,10 @@ import document.TableRow;
 
 public interface Visitor {
 	
-	public String visit(Heading documentElement);
-	public String visit(ListElement documentElement);
-	public String visit(Paragraph documentElement);
-	public String visit(Table documentElement);
-	public String visit(TableRow documentElement);
+	public DocumentElement visit(Heading documentElement);
+	public DocumentElement visit(ListElement documentElement);
+	public DocumentElement visit(Paragraph documentElement);
+	public DocumentElement visit(Table documentElement);
+	public DocumentElement visit(TableRow documentElement);
 
 }

@@ -1,10 +1,20 @@
 package xml;
 
+import java.util.List;
+
 import document.DocumentElement;
 import document.Table;
 import document.TableRow;
 
 public class XMLTable extends Table {
+	
+	public XMLTable() {
+		super();
+	}
+	
+	public XMLTable(List<TableRow> rows) {
+		super(rows);
+	}
 
 	@Override
 	public String toString() {

@@ -15,6 +15,10 @@ public class Heading implements DocumentElement {
 		this.setContent(content);
 		this.setLevel(level);
 	}
+	
+	public String getContent() {
+		return content;
+	}
 
 	public void setContent(String content) {
 		this.content = content;

@@ -12,8 +12,8 @@ public interface DocumentElementFactory {
     DocumentElement createHeading(String text, int level);
 
 
-    DocumentElement createList(List<String> items);
+    DocumentElement createListElement(List<DocumentElement> items);
+    
 
-
-    DocumentElement createTable(List<List<String>> data);
+    DocumentElement createTable(List<List<DocumentElement>> data);
 }

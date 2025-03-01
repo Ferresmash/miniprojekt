@@ -1,9 +1,15 @@
 package xml;
 
+import java.util.List;
+
 import document.DocumentElement;
 import document.TableRow;
 
 public class XMLTableRow extends TableRow{
+	
+	public XMLTableRow(List<DocumentElement> cells) {
+		super(cells);
+	}
 
 	@Override
 	public String toString() {
@@ -13,4 +19,5 @@ public class XMLTableRow extends TableRow{
         }
         return str + "</row>\n";
 	}
+	
 }

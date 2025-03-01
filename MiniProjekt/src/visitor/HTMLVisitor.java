@@ -8,49 +8,34 @@ import document.ListElement;
 import document.Paragraph;
 import document.Table;
 import document.TableRow;
+import factory.HTMLDocumentElementFactory;
 
 public class HTMLVisitor implements Visitor {
 	HTMLDocumentElementFactory factory = new HTMLDocumentElementFactory();
-
+	
 	@Override
-	public String visit(Heading e) {
-		return e.toString();
+	public DocumentElement visit(Heading e) {
+		return factory.createHeading(e.getContent(), e.getLevel());
 	}
 
 	@Override
-	public String visit(ListElement e) {
-		String str = "<ul>\n";
-		for(DocumentElement element : e.getContent()) {
-			if(element.accept(this).startsWith("<ul>")) {
-				str += element.accept(this)+"\n";
-			} else {
-				str += "<li>\n"+element.accept(this)+"</li>\n";
-			}
-		}
-		return str+ "</ul>";
+	public DocumentElement visit(ListElement e) {
+		return factory.createListElement(e.getContent());
 	}
 
 	@Override
-	public String visit(Paragraph e) {
-		return "<p>"+e.toString()+"</p>\n";
+	public DocumentElement visit(Paragraph e) {
+		return factory.createParagraph(e.getContent());
 	}
 
 	@Override
-	public String visit(Table e) {
-		String str = "<table>\n";
-		for(DocumentElement element : e.getRows()) {
-			str += "<tr>\n"+element.accept(this)+"</tr>\n";
-		}
-		return str+ "</table>\n";
+	public DocumentElement visit(Table e) {
+		return factory.createTable(e.getContent());
 	}
 
 	@Override
-	public String visit(TableRow e) {
-		String str = "";
-		for(DocumentElement element : e.getCells()) {
-			str += "<td>"+element.accept(this)+"</td>\n";
-		}
-		return str;
+	public DocumentElement visit(TableRow e) {
+		return factory.createTableRow(e.getContent(), e.getLevel());
 	}
 
 }

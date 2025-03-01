@@ -1,9 +1,15 @@
 package html;
 
+import java.util.List;
+
 import document.DocumentElement;
 import document.TableRow;
 
 public class HTMLTableRow extends TableRow {
+	
+	public HTMLTableRow(List<DocumentElement> cells) {
+		super(cells);
+	}
 
 	@Override
 	public String toString() {

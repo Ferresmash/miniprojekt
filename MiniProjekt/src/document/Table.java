@@ -34,6 +34,10 @@ public class Table implements DocumentElement, CompositeElement {
     public DocumentElement getChild(int index) {
         return rows.get(index);
     }
+    
+    public List<TableRow> getContent() {
+    	return rows;
+    }
 
     @Override
     public String toString() {

@@ -8,6 +8,8 @@ import builder.StandardDocumentBuilder;
 import command.Command;
 import document.Document;
 import document.DocumentElement;
+import factory.ConcreteElementFactory;
+import factory.DocumentElementFactory;
 import iterator.ConcreteDocumentIterator;
 import iterator.DocumentIterator;
 import singleton.DocumentManager;
@@ -29,7 +31,7 @@ public class Api implements Facade {
 
 	@Override
 	public Document createDocument() {
-		DocumentBuilder builder = new StandardDocumentBuilder();
+		DocumentBuilder builder = new StandardDocumentBuilder(new ConcreteElementFactory());
 		director = new Director(builder);
 		director.constructDocument();
 		return builder.getResult();
