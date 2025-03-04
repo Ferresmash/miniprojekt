@@ -37,4 +37,9 @@ public class Heading implements DocumentElement {
 	public void accept(Visitor visitor) {
 		visitor.visit(this);
 	}
+
+	@Override
+	public boolean hasChild() {
+		return false;
+	}
 }

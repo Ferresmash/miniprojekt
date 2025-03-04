@@ -52,4 +52,12 @@ public class Table implements DocumentElement, CompositeElement {
 	public void accept(Visitor visitor) {
 		visitor.visit(this);
 	}
+
+	@Override
+	public boolean hasChild() {
+		if(getContent().size() > 1) {
+			return true;
+		}
+		return false;
+	}
 }

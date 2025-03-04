@@ -12,6 +12,9 @@ public class DocumentConverter {
 	public Document toHTML(Document document) {
 		Visitor visitor = new HTMLVisitor();
 		for(DocumentElement element : document.getElements()) {
+			if(element.hasChild()) {
+				
+			}
 			element.accept(visitor);
 		}
 		return visitor.getResult();

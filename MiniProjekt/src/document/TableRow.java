@@ -52,5 +52,10 @@ public class TableRow implements DocumentElement, CompositeElement {
 		// TODO Auto-generated method stub
 		visitor.visit(this);
 	}
+	
+	@Override
+	public boolean hasChild() {
+		return false;
+	}
 
 }

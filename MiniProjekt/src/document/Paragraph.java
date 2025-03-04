@@ -31,4 +31,9 @@ public class Paragraph implements DocumentElement {
 	public String getContent() {
 		return content;
 	}
+
+	@Override
+	public boolean hasChild() {
+		return false;
+	}
 }

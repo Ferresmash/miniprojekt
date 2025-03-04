@@ -32,6 +32,8 @@ public class ListElement implements DocumentElement, CompositeElement {
 		return elementList.get(index);
 	}
 	
+	
+	
 	public List<DocumentElement> getContent() {
 		return elementList;
 	}
@@ -50,4 +52,11 @@ public class ListElement implements DocumentElement, CompositeElement {
 		visitor.visit(this);
 	}
 
+	@Override
+	public boolean hasChild() {
+		if(getContent().size() > 1) {
+			return true;
+		}
+		return false;
+	}
 }
