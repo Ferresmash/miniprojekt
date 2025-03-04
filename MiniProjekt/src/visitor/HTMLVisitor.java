@@ -1,17 +1,17 @@
 package visitor;
 import builder.DocumentBuilder;
-import builder.StandardDocumentBuilder;
+import builder.HTMLDocumentBuilder;
 import document.Document;
 import document.Heading;
 import document.ListElement;
 import document.Paragraph;
 import document.Table;
 import document.TableRow;
-import factory.HTMLDocumentElementFactory;
+
 
 
 public class HTMLVisitor implements Visitor {
-	private DocumentBuilder dB = new StandardDocumentBuilder(new HTMLDocumentElementFactory());
+	private DocumentBuilder dB = new HTMLDocumentBuilder();
 	
     @Override
     public void visit(Heading e) {

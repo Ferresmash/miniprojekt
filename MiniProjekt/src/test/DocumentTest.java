@@ -9,6 +9,7 @@ import document.Document;
 import document.DocumentElement;
 import document.Heading;
 import document.Paragraph;
+import document.StandardDocument;
 
 public class DocumentTest {
 
@@ -17,7 +18,7 @@ public class DocumentTest {
      */
     @Test
     public void testAddAndGetElement() {
-        Document doc = new Document();
+    	Document doc = new StandardDocument();
         DocumentElement e1 = new Heading("Element 1", 3);
         DocumentElement e2 = new Paragraph("Element 2");
 
@@ -33,7 +34,7 @@ public class DocumentTest {
 
     @Test
     public void testGetElementInvalidIndex() {
-        Document doc = new Document();
+    	Document doc = new StandardDocument();
         DocumentElement e1 = new Heading("Element 1", 3);
         doc.addElement(e1);
 
@@ -49,7 +50,7 @@ public class DocumentTest {
 
     @Test
     public void testAddNullElement() {
-        Document doc = new Document();
+    	Document doc = new StandardDocument();
         doc.addElement(null);
         assertTrue(doc.getElements().isEmpty(), "Document should remain empty when null is added.");
     }
@@ -57,7 +58,7 @@ public class DocumentTest {
 
     @Test
     public void testRender() {
-        Document doc = new Document();
+    	Document doc = new StandardDocument();
         DocumentElement e1 = new Heading("Element 1", 3);
         DocumentElement e2 = new Paragraph("Element 2");
 

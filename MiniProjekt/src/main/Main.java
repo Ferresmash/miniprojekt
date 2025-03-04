@@ -1,6 +1,5 @@
 package main;
 
-import java.util.List;
 
 import command.AddElementCommand;
 import command.DeleteDocumentCommand;

@@ -1,19 +1,20 @@
 package builder;
 
 import java.util.List;
+
 import document.Document;
 import document.DocumentElement;
-import document.StandardDocument;
 import document.TableRow;
-import factory.ConcreteElementFactory;
+import document.XMLDocument;
 import factory.DocumentElementFactory;
+import factory.XMLDocumentElementFactory;
 
-public class StandardDocumentBuilder implements DocumentBuilder {
+public class XMLDocumentBuilder implements DocumentBuilder {
 	
-	private Document document = new StandardDocument();
-	private DocumentElementFactory factory = new ConcreteElementFactory();
+	private Document document = new XMLDocument();
+	private DocumentElementFactory factory = new XMLDocumentElementFactory();
 	
-	public StandardDocumentBuilder() {
+	public XMLDocumentBuilder() {
 
 	}
 

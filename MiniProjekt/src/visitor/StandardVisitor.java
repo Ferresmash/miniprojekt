@@ -8,12 +8,10 @@ import document.ListElement;
 import document.Paragraph;
 import document.Table;
 import document.TableRow;
-import factory.ConcreteElementFactory;
-import factory.HTMLDocumentElementFactory;
 
 public class StandardVisitor implements Visitor {
 
-	private DocumentBuilder dB = new StandardDocumentBuilder(new ConcreteElementFactory());
+	private DocumentBuilder dB = new StandardDocumentBuilder();
 	
     @Override
     public void visit(Heading e) {

@@ -8,13 +8,10 @@ import builder.DocumentConverter;
 import builder.StandardDocumentBuilder;
 import command.Command;
 import document.Document;
-import document.DocumentElement;
-import factory.ConcreteElementFactory;
 import iterator.ConcreteDocumentIterator;
 import iterator.DocumentIterator;
 import singleton.DocumentManager;
-import visitor.HTMLVisitor;
-import visitor.XMLVisitor;
+
 
 public class Api implements Facade {
 
@@ -31,7 +28,7 @@ public class Api implements Facade {
 
 	@Override
 	public Document createDocument() {
-		DocumentBuilder builder = new StandardDocumentBuilder(new ConcreteElementFactory());
+		DocumentBuilder builder = new StandardDocumentBuilder();
 		director = new Director(builder);
 		director.constructDocument();
 		return builder.getResult();

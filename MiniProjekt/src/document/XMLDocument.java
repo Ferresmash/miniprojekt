@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public abstract class Document {
+public class XMLDocument extends Document{
+	
+	private List<DocumentElement> elements;
 
-	protected List<DocumentElement> elements;
-
-	public Document() {
+	public XMLDocument() {
 		this.elements = new ArrayList<>();
 	}
 

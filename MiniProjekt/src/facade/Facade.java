@@ -2,7 +2,6 @@ package facade;
 
 import command.Command;
 import document.Document;
-import document.DocumentElement;
 
 public interface Facade {
 	

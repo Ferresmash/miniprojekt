@@ -1,6 +1,6 @@
 package visitor;
 
-import builder.StandardDocumentBuilder;
+import builder.XMLDocumentBuilder;
 import builder.DocumentBuilder;
 import document.Document;
 import document.Heading;
@@ -8,11 +8,10 @@ import document.ListElement;
 import document.Paragraph;
 import document.Table;
 import document.TableRow;
-import factory.XMLDocumentElementFactory;
 
 public class XMLVisitor implements Visitor {
 
-	private DocumentBuilder dB = new StandardDocumentBuilder(new XMLDocumentElementFactory());
+	private DocumentBuilder dB = new XMLDocumentBuilder();
 	
     @Override
     public void visit(Heading e) {
