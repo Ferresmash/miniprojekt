@@ -48,9 +48,8 @@ public class TableRow implements DocumentElement, CompositeElement {
     }
 
 	@Override
-	public void accept(Visitor visitor) {
-		// TODO Auto-generated method stub
-		visitor.visit(this);
+	public DocumentElement accept(Visitor visitor) {
+		return visitor.visit(this);
 	}
 	
 	@Override

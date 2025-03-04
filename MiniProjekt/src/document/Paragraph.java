@@ -24,8 +24,8 @@ public class Paragraph implements DocumentElement {
 	}
 
 	@Override
-	public void accept(Visitor visitor) {
-		visitor.visit(this);
+	public DocumentElement accept(Visitor visitor) {
+		return visitor.visit(this);
 	}
 
 	public String getContent() {

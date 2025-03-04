@@ -14,17 +14,18 @@ public class XMLListElement extends ListElement {
 
 	@Override
 	public String toString() {
-
-		String str = "<list>\n";
-		for(DocumentElement element : getContent()) {
-
-			if(element.toString().startsWith("<list>")) {
-				str += element.toString() + "\n";
-			}else {
-				str += "<item>" + element.toString() + "</item>\n";			
-			}
-		}
-		return str+ "</list>";
+	    StringBuilder str = new StringBuilder("<list>\n");
+	    
+	    for (DocumentElement element : getContent()) {
+	        if (element.toString().startsWith("<list>")) {
+	            str.append("<item>\n").append(element.toString()).append("\n</item>\n");
+	        } else {
+	            str.append("<item>").append(element.toString()).append("</item>\n");
+	        }
+	    }
+	    
+	    str.append("</list>");
+	    return str.toString();
 	}
 	
 }

@@ -4,7 +4,7 @@ import visitor.Visitor;
 
 public interface DocumentElement {
    
-    public void accept(Visitor visitor);
+    public DocumentElement accept(Visitor visitor);
     public boolean hasChild();
 }
 

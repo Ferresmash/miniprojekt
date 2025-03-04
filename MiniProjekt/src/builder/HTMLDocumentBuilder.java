@@ -13,6 +13,7 @@ public class HTMLDocumentBuilder implements DocumentBuilder {
 	
 	private Document document = new HTMLDocument();
 	private DocumentElementFactory factory = new HTMLDocumentElementFactory();
+
 	
 	public HTMLDocumentBuilder() {
 

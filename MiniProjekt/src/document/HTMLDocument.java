@@ -7,6 +7,7 @@ public class HTMLDocument extends Document {
 		super();
 	}
 
+	@Override
 	public String render() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("<!DOCTYPE html>\r\n"

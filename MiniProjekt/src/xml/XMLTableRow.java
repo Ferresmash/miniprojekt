@@ -13,6 +13,7 @@ public class XMLTableRow extends TableRow{
 
 	@Override
 	public String toString() {
+		StringBuilder builder = new StringBuilder();
 		String str = "<row>\n";
         for(DocumentElement element : getContent()) {
             str += "<cell>" + element.toString() + "</cell>\n";

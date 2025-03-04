@@ -32,10 +32,14 @@ public class Heading implements DocumentElement {
 	public void setLevel(int level) {
 		this.level = level;
 	}
+	
+	public String getContent() {
+		return content;
+	}
 
 	@Override
-	public void accept(Visitor visitor) {
-		visitor.visit(this);
+	public DocumentElement accept(Visitor visitor) {
+		return visitor.visit(this);
 	}
 
 	@Override

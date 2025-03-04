@@ -6,12 +6,4 @@ public class StandardDocument extends Document{
 		super();
 	}
 
-	public String render() {
-		StringBuilder builder = new StringBuilder();
-		for (DocumentElement element : elements) {
-			builder.append(element.toString()).append("\n");
-		}
-		return builder.toString();
-	}
-
 }

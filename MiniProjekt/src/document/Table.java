@@ -49,8 +49,8 @@ public class Table implements DocumentElement, CompositeElement {
     }
 
 	@Override
-	public void accept(Visitor visitor) {
-		visitor.visit(this);
+	public DocumentElement accept(Visitor visitor) {
+		return visitor.visit(this);
 	}
 
 	@Override
