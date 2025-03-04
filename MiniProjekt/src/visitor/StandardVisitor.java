@@ -1,4 +1,5 @@
 package visitor;
+
 import builder.DocumentBuilder;
 import builder.StandardDocumentBuilder;
 import document.Document;
@@ -7,11 +8,12 @@ import document.ListElement;
 import document.Paragraph;
 import document.Table;
 import document.TableRow;
+import factory.ConcreteElementFactory;
 import factory.HTMLDocumentElementFactory;
 
+public class StandardVisitor implements Visitor {
 
-public class HTMLVisitor implements Visitor {
-	private DocumentBuilder dB = new StandardDocumentBuilder(new HTMLDocumentElementFactory());
+	private DocumentBuilder dB = new StandardDocumentBuilder(new ConcreteElementFactory());
 	
     @Override
     public void visit(Heading e) {

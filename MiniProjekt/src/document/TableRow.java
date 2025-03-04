@@ -43,14 +43,14 @@ public class TableRow implements DocumentElement, CompositeElement {
         return sb.toString();
     }
     
-    public List<DocumentElement> getCells() {
+    public List<DocumentElement> getContent() {
         return cells;
     }
 
 	@Override
-	public String accept(Visitor visitor) {
+	public void accept(Visitor visitor) {
 		// TODO Auto-generated method stub
-		return visitor.visit(this);
+		visitor.visit(this);
 	}
 
 }

@@ -3,6 +3,7 @@ package factory;
 import java.util.List;
 
 import document.DocumentElement;
+import document.TableRow;
 
 public interface DocumentElementFactory {
 
@@ -12,8 +13,10 @@ public interface DocumentElementFactory {
     DocumentElement createHeading(String text, int level);
 
 
-    DocumentElement createList(List<String> items);
+    DocumentElement createList(List<DocumentElement> items);
 
 
-    DocumentElement createTable(List<List<String>> data);
+    DocumentElement createTable(List<TableRow> data);
+    
+    DocumentElement createTableRow(List<DocumentElement> row);
 }

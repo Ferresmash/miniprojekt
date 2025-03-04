@@ -1,11 +1,17 @@
 package xml;
 
+import java.util.List;
+
 import document.DocumentElement;
 import document.ListElement;
 
 public class XMLListElement extends ListElement {
 
 	
+	public XMLListElement(List<DocumentElement> items) {
+		super(items);
+	}
+
 	@Override
 	public String toString() {
 

@@ -16,9 +16,11 @@ public interface Facade {
 	    
 	    public String renderDocument(Document document);
 	    
-	    public String renderAsHTML(Document document);
+	    public Document convertToHTML(Document document);
 	    
-	    public String renderAsXML(Document document);
+	    public Document convertToXML(Document document);
+	    
+	    public Document convertToStandard(Document document);
 	    
 	    public Document getDocument(String id);
 	    

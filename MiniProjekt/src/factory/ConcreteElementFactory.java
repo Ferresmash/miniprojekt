@@ -22,27 +22,30 @@ public class ConcreteElementFactory implements DocumentElementFactory {
 	}
 
     @Override
-    public DocumentElement createList(List<String> items) {
+    public DocumentElement createList(List<DocumentElement> items) {
         ListElement list = new ListElement();
-        for (String item : items) {
-            list.add(new Paragraph(item));
+        for (DocumentElement item : items) {
+            list.add(item);
         }
         return list;
     }
 
-
 	@Override
-	public DocumentElement createTable(List<List<String>> data) {
+	public DocumentElement createTable(List<TableRow> data) {
 		Table table = new Table();
-		for (List<String> list : data) {
-			TableRow row = new TableRow();
-			for (String string : list) {
-				row.add(new Paragraph(string));
-			}
-			table.add(row);
+		for (TableRow list : data) {
+			table.add(list);
 		}	
 		return table;
 	}
 
+	@Override
+	public DocumentElement createTableRow(List<DocumentElement> row) {
+		TableRow list = new TableRow();
+        for (DocumentElement item : row) {
+            list.add(item);
+        }
+        return list;
+	}
 
 }

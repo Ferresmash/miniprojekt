@@ -1,9 +1,16 @@
 package html;
 
+import java.util.List;
+
 import document.DocumentElement;
 import document.ListElement;
 
 public class HTMLListElement extends ListElement {
+
+	public HTMLListElement(List<DocumentElement> items) {
+		super(items);
+	}
+
 
 	@Override
 	public String toString() {

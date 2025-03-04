@@ -69,8 +69,8 @@ public class Main {
 		
 		//testing rendering document in different markuplanguages
 		System.out.println(api.renderDocument(testDoc));	
-		System.out.println(api.renderAsHTML(testDoc));	
-		System.out.println(api.renderAsXML(testDoc));	
+		System.out.println(api.convertToHTML(testDoc).render());	
+		System.out.println(api.convertToXML(testDoc).render());	
 
 		
 		

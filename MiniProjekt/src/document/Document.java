@@ -44,12 +44,4 @@ public class Document {
 		}
 		return builder.toString();
 	}
-	
-	public String render(Visitor visitor) {
-		StringBuilder builder = new StringBuilder();
-		for (DocumentElement element : elements) {
-			builder.append(element.accept(visitor)).append("\n");
-		}
-		return builder.toString();
-	}
 }

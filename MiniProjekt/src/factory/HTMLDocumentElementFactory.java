@@ -1,8 +1,9 @@
 package factory;
 
 import java.util.List;
-
 import document.DocumentElement;
+import document.TableRow;
+import html.*;
 
 public class HTMLDocumentElementFactory implements DocumentElementFactory {
 
@@ -17,13 +18,18 @@ public class HTMLDocumentElementFactory implements DocumentElementFactory {
 	}
 
 	@Override
-	public DocumentElement createList(List<String> items) {
-		return new HTMLList(items);
+	public DocumentElement createList(List<DocumentElement> items) {
+		return new HTMLListElement(items);
 	}
 
 	@Override
-	public DocumentElement createTable(List<List<String>> data) {
+	public DocumentElement createTable(List<TableRow> data) {
 		return new HTMLTable(data);
+	}
+
+	@Override
+	public DocumentElement createTableRow(List<DocumentElement> row) {
+		return new HTMLTableRow(row);
 	}
 
 }

@@ -2,6 +2,8 @@ package builder;
 
 import java.util.List;
 import document.Document;
+import document.DocumentElement;
+import document.TableRow;
 import factory.ConcreteElementFactory;
 import factory.DocumentElementFactory;
 
@@ -26,7 +28,7 @@ public class StandardDocumentBuilder implements DocumentBuilder {
 	}
 
 	@Override
-	public void addList(List<String> items) {
+	public void addList(List<DocumentElement> items) {
 		document.addElement(factory.createList(items));
 	}
 
@@ -36,9 +38,13 @@ public class StandardDocumentBuilder implements DocumentBuilder {
 	}
 
 	@Override
-	public void addTable(List<List<String>> items) {
+	public void addTable(List<TableRow> items) {
 	document.addElement(factory.createTable(items));
 	}
-	
+
+	@Override
+	public void addTableRow(List<DocumentElement> row) {
+	document.addElement(factory.createTableRow(row));
+	}
 
 }

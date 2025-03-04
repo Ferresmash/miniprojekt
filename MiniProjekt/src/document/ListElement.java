@@ -46,8 +46,8 @@ public class ListElement implements DocumentElement, CompositeElement {
 	}
 
 	@Override
-	public String accept(Visitor visitor) {
-		return visitor.visit(this);
+	public void accept(Visitor visitor) {
+		visitor.visit(this);
 	}
 
 }

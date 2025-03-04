@@ -1,52 +1,47 @@
 package visitor;
 
-import document.DocumentElement;
+import builder.StandardDocumentBuilder;
+import builder.DocumentBuilder;
+import document.Document;
 import document.Heading;
 import document.ListElement;
 import document.Paragraph;
 import document.Table;
 import document.TableRow;
+import factory.XMLDocumentElementFactory;
 
 public class XMLVisitor implements Visitor {
 
+	private DocumentBuilder dB = new StandardDocumentBuilder(new XMLDocumentElementFactory());
+	
     @Override
-    public String visit(Heading e) {
-        return "<heading level=\"" + e.getLevel() + "\">" + e.toString() + "</heading>\n";
+    public void visit(Heading e) {
+        dB.addHeading(e.toString(), e.getLevel());
     }
     
     @Override
-    public String visit(ListElement e) {
-        String str = "<list>\n";
-        for(DocumentElement element : e.getContent()) {
-            if(element.accept(this).trim().startsWith("<list>")) {
-                str += element.accept(this);
-            } else {
-                str += "<item>\n" + element.accept(this) + "</item>\n";
-            }
-        }
-        return str + "</list>\n";
+    public void visit(ListElement e) {
+        dB.addList(e.getContent());
     }
     
     @Override
-    public String visit(Paragraph e) {
-        return "<paragraph>" + e.toString() + "</paragraph>\n";
+    public void visit(Paragraph e) {
+    	dB.addParagraph(e.getContent());
     }
     
     @Override
-    public String visit(Table e) {
-        String str = "<table>\n";
-        for(DocumentElement element : e.getRows()) {
-            str += element.accept(this);
-        }
-        return str + "</table>\n";
+    public void visit(Table e) {
+        dB.addTable(e.getContent());
     }
-    
-    @Override
-    public String visit(TableRow e) {
-        String str = "<row>\n";
-        for(DocumentElement element : e.getCells()) {
-            str += "<cell>" + element.accept(this) + "</cell>\n";
-        }
-        return str + "</row>\n";
-    }
+
+	@Override
+	public Document getResult() {
+		return dB.getResult();
+	}
+
+	@Override
+	public void visit(TableRow e) {
+
+		dB.addTableRow(e.getContent());
+	}
 }

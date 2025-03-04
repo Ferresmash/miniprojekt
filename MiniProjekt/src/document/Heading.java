@@ -34,7 +34,7 @@ public class Heading implements DocumentElement {
 	}
 
 	@Override
-	public String accept(Visitor visitor) {
-		return visitor.visit(this);
+	public void accept(Visitor visitor) {
+		visitor.visit(this);
 	}
 }

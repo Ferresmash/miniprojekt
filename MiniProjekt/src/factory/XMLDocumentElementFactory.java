@@ -3,6 +3,12 @@ package factory;
 import java.util.List;
 
 import document.DocumentElement;
+import document.TableRow;
+import xml.XMLHeading;
+import xml.XMLListElement;
+import xml.XMLParagraph;
+import xml.XMLTable;
+import xml.XMLTableRow;
 
 public class XMLDocumentElementFactory implements DocumentElementFactory {
 
@@ -17,13 +23,18 @@ public class XMLDocumentElementFactory implements DocumentElementFactory {
 	}
 
 	@Override
-	public DocumentElement createList(List<String> items) {
-		return new XMLList(items);
+	public DocumentElement createList(List<DocumentElement> items) {
+		return new XMLListElement(items);
 	}
 
 	@Override
-	public DocumentElement createTable(List<List<String>> data) {
+	public DocumentElement createTable(List<TableRow> data) {
 		return new XMLTable(data);
+	}
+
+	@Override
+	public DocumentElement createTableRow(List<DocumentElement> row) {
+		return new XMLTableRow(row);
 	}
 
 }

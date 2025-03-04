@@ -4,10 +4,12 @@ import java.util.Stack;
 
 import builder.Director;
 import builder.DocumentBuilder;
+import builder.DocumentConverter;
 import builder.StandardDocumentBuilder;
 import command.Command;
 import document.Document;
 import document.DocumentElement;
+import factory.ConcreteElementFactory;
 import iterator.ConcreteDocumentIterator;
 import iterator.DocumentIterator;
 import singleton.DocumentManager;
@@ -21,7 +23,7 @@ public class Api implements Facade {
 	private DocumentIterator documentIterator;
 	private Stack<Command> undoStack = new Stack<>();
     private Stack<Command> redoStack = new Stack<>();
-	
+	private DocumentConverter converter = new DocumentConverter();
 
 	public Api() {
 		this.documentManager = DocumentManager.getInstance();
@@ -29,7 +31,7 @@ public class Api implements Facade {
 
 	@Override
 	public Document createDocument() {
-		DocumentBuilder builder = new StandardDocumentBuilder();
+		DocumentBuilder builder = new StandardDocumentBuilder(new ConcreteElementFactory());
 		director = new Director(builder);
 		director.constructDocument();
 		return builder.getResult();
@@ -57,16 +59,16 @@ public class Api implements Facade {
         }
 	}
 	
-	public Document convertToStandard() {
-		
+	public Document convertToStandard(Document doc) {
+		return converter.toStandard(doc);
 	}
 	
-	public Document convertToHTML() {
-		
+	public Document convertToHTML(Document doc) {
+		return converter.toHTML(doc);
 	}
 
-	public Document convertToXML() {
-		
+	public Document convertToXML(Document doc) {
+		return converter.toXML(doc);
 	}
 
 	@Override
@@ -74,14 +76,6 @@ public class Api implements Facade {
 		return document.render();
 	}
 	
-	public String renderAsHTML(Document document) {
-		return document.render(new HTMLVisitor());
-	}
-	
-	public String renderAsXML(Document document) {
-		return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n <document>\n" + document.render(new XMLVisitor()) + "</document>";
-	}
-
 	@Override
 	public Document getDocument(String id) {
 		if (documentManager.documentExists(id)) {

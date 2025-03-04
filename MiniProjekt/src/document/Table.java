@@ -44,14 +44,12 @@ public class Table implements DocumentElement, CompositeElement {
         return sb.toString();
     }
     
-    //Om man skulle använda ett GUI
-    public List<TableRow> getRows() {
+    public List<TableRow> getContent() {
         return rows;
     }
 
 	@Override
-	public String accept(Visitor visitor) {
-		// TODO Auto-generated method stub
-		return visitor.visit(this);
+	public void accept(Visitor visitor) {
+		visitor.visit(this);
 	}
 }
